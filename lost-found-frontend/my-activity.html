@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Activity | Lost & Found</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/my-activity.css">
+</head>
+<body>
+
+    <header class="dashboard-header">
+        <div class="left-section">
+            <div class="logo-text" onclick="location.href='dashboard.html'" style="cursor:pointer">
+                Lost<span>&</span>Found
+            </div>
+        </div>
+        <div class="right-section">
+            <a href="profile.html" class="top-profile-btn">Back to Profile</a>
+        </div>
+    </header>
+
+    <main class="activity-container">
+        <div class="activity-header">
+            <h1>My Activity History</h1>
+            <p>Track the items you have reported or found.</p>
+        </div>
+        
+        <div class="activity-stats">
+           <div class="stat-card">
+             <span class="stat-number" id="lostCount">0</span>
+             <span class="stat-label">Lost Reports</span>
+           </div>
+           <div class="stat-card">
+             <span class="stat-number" id="foundCount">0</span>
+             <span class="stat-label">Found Reports</span>
+           </div>
+        </div>
+    </main>
+
+    <script src="my-activity.js"></script>
+</body>
+</html>

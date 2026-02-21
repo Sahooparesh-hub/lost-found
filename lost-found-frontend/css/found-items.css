@@ -1,0 +1,105 @@
+/* Inherits from dashboard.css base styles */
+
+.page-title-section {
+    background: #fff;
+    padding: 30px 5% 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+.page-title-section h1 {
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+}
+
+.category-filters {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.filter-btn {
+    padding: 8px 20px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    background: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background: var(--primary-blue);
+    color: white;
+}
+
+/* Grid and Cards */
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    padding-top: 20px;
+}
+
+.item-card {
+    position: relative;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: var(--transition);
+    text-align: left;
+}
+
+.found-border {
+    border-top: 5px solid #27ae60; /* Green for "Found" */
+}
+
+.status-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: white;
+}
+
+.status-badge.found {
+    background: #27ae60;
+}
+
+.item-info {
+    padding: 20px;
+}
+
+.item-info h3 {
+    margin: 0 0 10px 0;
+    color: var(--primary-blue);
+}
+
+.location, .date {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 5px 0;
+}
+
+.btn-claim {
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: var(--primary-blue);
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-claim:hover {
+    background: var(--accent-yellow);
+    color: var(--primary-blue);
+}

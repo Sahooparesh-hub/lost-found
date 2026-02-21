@@ -1,0 +1,33 @@
+.details-container {
+  max-width: 600px;
+  margin: 40px auto;
+}
+
+.details-card {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.details-image {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.status-badge.found {
+  background-color: green;
+}
+
+.status-badge.lost {
+  background-color: red;
+}

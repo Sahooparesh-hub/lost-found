@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Found Items | Lost & Found</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/found-items.css">
+</head>
+<body>
+
+    <header class="dashboard-header">
+        <div class="left-section">
+            <div class="logo-text">Lost<span>&</span>Found</div>
+        </div>
+
+        <div class="search-bar-container">
+            <input type="text" id="foundSearchInput" placeholder="Search found items">
+            <button onclick="filterFoundItems()">Search</button>
+        </div>
+
+        <div class="right-section">
+            <a href="profile.html" class="top-profile-btn">
+                <span class="avatar-sm">LF</span> Profile
+            </a>
+        </div>
+    </header>
+
+    <section class="page-title-section">
+        <div class="container">
+            <h1>Recovered & Found Items</h1>
+            <p>Browse items that have been found. If you see yours, click "Claim" to contact the finder.</p>
+        
+        </div>
+    </section>
+
+    <main class="content-area">
+        <div id="foundItemsGrid" class="items-grid">
+            <div class="item-card found-border">
+                <div class="status-badge found">FOUND</div>
+                <img src="https://via.placeholder.com/300x200" alt="Found Item" class="item-image">
+                <div class="item-info">
+                    <h3>Blue Backpack</h3>
+                    <p class="location">📍 Central Library</p>
+                    <p class="date">Date: Oct 24, 2023</p>
+                    <button class="btn-claim">This is Mine</button>
+                </div>
+            </div>
+
+            <div class="item-card found-border">
+                <div class="status-badge found">FOUND</div>
+                <img src="https://via.placeholder.com/300x200" alt="Found Item" class="item-image">
+                <div class="item-info">
+                    <h3>iPhone 13 - Silver</h3>
+                    <p class="location">📍 Cafeteria</p>
+                    <p class="date">Date: Oct 22, 2023</p>
+                    <button class="btn-claim">This is Mine</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="found-items.js"></script>
+</body>
+</html>

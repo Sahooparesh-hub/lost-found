@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Lost & Found</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+    <div class="main-wrapper">
+        <header class="dashboard-header">
+            <div class="left-section">
+                <div class="logo-text">Lost<span>&</span>Found</div>
+            </div>
+
+            <div class="search-bar-container">
+                <input type="text" id="searchInput" placeholder="Search items">
+                
+            </div>
+
+            <div class="right-section">
+                <a href="profile.html" class="top-profile-btn">
+                    <span class="avatar-sm">LF</span> Profile
+                </a>
+            </div>
+        </header>
+
+        <section class="hero-nav">
+            <h1>What would you like to do?</h1>
+            <div class="nav-buttons-container">
+                <a href="index.html" class="nav-card">
+                    <span class="icon">🏠</span>
+                    Home
+                </a>
+                <a href="post-item.html" class="nav-card">
+                    <span class="icon">➕</span>
+                    Post Lost Item
+                </a>
+                <a href="found-items.html" class="nav-card">
+                    <span class="icon">🔍</span>
+                    Found Items
+                </a>
+            </div>
+        </section>
+
+        <main class="content-area">
+            <div id="itemsContainer">
+                </div>
+        </main>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

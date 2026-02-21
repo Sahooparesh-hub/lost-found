@@ -1,0 +1,376 @@
+:root {
+    --primary-blue: #002347;
+    --accent-yellow: #FFD700;
+    --white: #ffffff;
+    --bg-gray: #f4f7f9;
+    --transition: all 0.3s ease;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--bg-gray);
+    overflow-x: hidden;
+}
+
+/* --- Header & Search Bar --- */
+.dashboard-header {
+    background: var(--primary-blue);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.left-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo-text {
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.logo-text span { color: var(--accent-yellow); }
+
+/* Menu Burger Icon */
+.menu-trigger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-trigger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--accent-yellow);
+    border-radius: 2px;
+}
+
+/* Search Bar */
+.search-bar-container {
+    flex: 1;
+    max-width: 600px;
+    margin: 0 40px;
+    display: flex;
+}
+
+.search-bar-container input {
+    width: 100%;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px 0 0 25px;
+    outline: none;
+}
+
+.search-bar-container button {
+    background: var(--accent-yellow);
+    border: none;
+    padding: 0 25px;
+    border-radius: 0 25px 25px 0;
+    font-weight: 700;
+    color: var(--primary-blue);
+    cursor: pointer;
+}
+
+.top-profile-btn {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border: 2px solid var(--accent-yellow);
+    padding: 8px 20px;
+    border-radius: 20px;
+    transition: var(--transition);
+}
+
+.top-profile-btn:hover {
+    background: var(--accent-yellow);
+    color: var(--primary-blue);
+}
+
+/* --- Side Menu (The Appearing Page) --- */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -320px; /* Hidden by default */
+    width: 300px;
+    height: 100%;
+    background: var(--white);
+    z-index: 2000;
+    box-shadow: 10px 0 30px rgba(0,0,0,0.2);
+    transition: var(--transition);
+}
+
+.side-menu.active {
+    left: 0;
+}
+
+.menu-content {
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--primary-blue);
+}
+
+.menu-profile {
+    text-align: center;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    background: var(--primary-blue);
+    color: var(--accent-yellow);
+    font-size: 1.5rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+}
+
+.btn-profile {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 15px;
+    background: var(--accent-yellow);
+    color: var(--primary-blue);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+.menu-links a {
+    display: block;
+    padding: 15px;
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.menu-links a:hover {
+    background: #f0f4f8;
+    padding-left: 25px;
+}
+
+.logout-link {
+    margin-top: auto;
+    color: #e74c3c !important;
+}
+
+.item-card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.item-image {
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+
+/* --- Content Area --- */
+.content-area {
+    padding: 50px 10%;
+    text-align: center;
+}
+
+.placeholder-text h2 {
+    color: var(--primary-blue);
+    font-size: 2.5rem;
+}
+:root {
+    --primary-blue: #002347;
+    --accent-yellow: #FFD700;
+    --white: #ffffff;
+    --bg-gray: #f4f7f9;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-gray);
+}
+
+/* --- Header --- */
+.dashboard-header {
+    background: var(--primary-blue);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.logo-text {
+    font-weight: 800;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.logo-text span { color: var(--accent-yellow); }
+
+/* Search Bar */
+.search-bar-container {
+    flex: 1;
+    max-width: 500px;
+    margin: 0 20px;
+    display: flex;
+}
+
+.search-bar-container input {
+    width: 100%;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px 0 0 25px;
+    outline: none;
+}
+
+.search-bar-container button {
+    background: var(--accent-yellow);
+    border: none;
+    padding: 0 20px;
+    border-radius: 0 25px 25px 0;
+    font-weight: 700;
+    color: var(--primary-blue);
+    cursor: pointer;
+}
+
+/* Profile Button on Right */
+.top-profile-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 30px;
+    border: 1px solid var(--accent-yellow);
+    transition: var(--transition);
+}
+
+.top-profile-btn:hover {
+    background: var(--accent-yellow);
+    color: var(--primary-blue);
+}
+
+.avatar-sm {
+    background: var(--accent-yellow);
+    color: var(--primary-blue);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+/* --- Hero Navigation --- */
+.hero-nav {
+    padding: 40px 5%;
+    background: linear-gradient(135deg, #002347 0%, #004080 100%);
+    text-align: center;
+    color: white;
+}
+
+.hero-nav h1 {
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.nav-buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.nav-card {
+    background: white;
+    color: var(--primary-blue);
+    text-decoration: none;
+    padding: 20px 40px;
+    border-radius: 12px;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    min-width: 150px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transition: var(--transition);
+}
+
+.nav-card .icon {
+    font-size: 2rem;
+}
+
+.nav-card:hover {
+    transform: translateY(-5px);
+    background: var(--accent-yellow);
+}
+
+/* --- Content Area --- */
+.content-area {
+    padding: 40px 5%;
+}
+
+#itemsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.item-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: var(--transition);
+}
+
+.item-card:hover {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}

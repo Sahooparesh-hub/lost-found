@@ -1,0 +1,193 @@
+/* --- Variables & Reset --- */
+:root {
+    --primary-blue: #002347;
+    --accent-yellow: #FFD700;
+    --bg-light: #f4f7f9;
+    --white: #ffffff;
+    --error-red: #e74c3c;
+    --text-dark: #333;
+    --shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* --- Header --- */
+.header {
+    width: 100%;
+    background-color: var(--primary-blue);
+    padding: 1rem 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+}
+
+.logo {
+    color: var(--white);
+    font-size: 1.4rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.logo span {
+    color: var(--accent-yellow);
+}
+
+.nav-text {
+    color: var(--white);
+    font-weight: 500;
+    opacity: 0.9;
+    border-left: 2px solid var(--accent-yellow);
+    padding-left: 15px;
+}
+
+/* --- Profile Container --- */
+.form-container {
+    background: var(--white);
+    width: 90%;
+    max-width: 500px;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    border-top: 6px solid var(--accent-yellow);
+}
+
+h2 {
+    color: var(--primary-blue);
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+/* --- Form Elements --- */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--primary-blue);
+    font-size: 0.9rem;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #d1d9e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: #fafafa;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(0, 35, 71, 0.05);
+}
+
+/* --- Buttons --- */
+.btn {
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-primary {
+    background-color: var(--accent-yellow);
+    color: var(--primary-blue);
+}
+
+.btn-primary:hover {
+    background-color: #e6c200;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+}
+
+.btn-logout {
+    background-color: transparent;
+    color: var(--error-red);
+    border: 2px solid var(--error-red);
+    margin-top: 15px;
+}
+
+.btn-logout:hover {
+    background-color: var(--error-red);
+    color: var(--white);
+}
+
+/* --- Responsive --- */
+@media (max-width: 480px) {
+    .form-container {
+        padding: 25px;
+    }
+}
+/* Add to profile.css */
+.btn-activity {
+    display: block;
+    text-align: center;
+    background: #f0f4f8;
+    color: var(--primary-blue);
+    text-decoration: none;
+    margin: 20px 0;
+    padding: 12px;
+    border: 2px dashed #cbd5e0;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-activity:hover {
+    background: var(--primary-blue);
+    color: white;
+    border-color: var(--primary-blue);
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-primary { flex: 2; }
+.btn-logout { flex: 1; background: #e74c3c; color: white; border: none; }
+
+.message-box {
+    display: none;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.message-box.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.message-box.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}

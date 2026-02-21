@@ -1,0 +1,223 @@
+/* ===== RESET & VARIABLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+:root {
+    --navy-blue: #003366;       /* Deep Professional Blue */
+    --accent-blue: #1a5276;     /* Secondary Blue */
+    --sunflower: #FFC300;       /* Rich Sunflower Yellow */
+    --sunflower-hover: #E6AF00; /* Darker Yellow for Hover */
+    --light-bg: #f4f7f9;        /* Soft Gray-Blue Background */
+    --white: #ffffff;
+    --text-dark: #2c3e50;
+    --text-muted: #5d6d7e;
+}
+
+/* ===== BODY ===== */
+body {
+    background-color: var(--light-bg);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* ===== HEADER & NAVIGATION ===== */
+.header {
+    background: var(--white);
+    padding: 15px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--navy-blue);
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--sunflower);
+}
+
+/* Auth Buttons Container */
+.auth-buttons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.btn {
+    padding: 10px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-login {
+    color: var(--navy-blue);
+    border: 2px solid var(--navy-blue);
+}
+
+.btn-login:hover {
+    background: var(--navy-blue);
+    color: var(--white);
+}
+
+.btn-signup {
+    background: var(--sunflower);
+    color: var(--navy-blue);
+    border: 2px solid var(--sunflower);
+}
+
+.btn-signup:hover {
+    background: var(--sunflower-hover);
+    border-color: var(--sunflower-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+    padding: 100px 20px;
+    text-align: center;
+    max-width: 900px;
+    margin: auto;
+}
+
+.hero h1 {
+    font-size: 48px;
+    color: var(--navy-blue);
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* A small yellow underline for the title */
+.hero h1::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--sunflower);
+    margin: 15px auto;
+    border-radius: 2px;
+}
+
+.hero p {
+    font-size: 19px;
+    color: var(--text-muted);
+}
+
+/* ===== BENEFITS SECTION ===== */
+.benefits {
+    padding: 40px 20px 80px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.benefit-card {
+    display: flex;
+    align-items: center;
+    background: var(--white);
+    margin-bottom: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    border-left: 5px solid transparent;
+}
+
+.benefit-card:hover {
+    transform: scale(1.02);
+    border-left: 5px solid var(--sunflower);
+}
+
+.benefit-card img {
+    width: 250px;
+    height: 180px;
+    object-fit: cover;
+}
+
+.benefit-text {
+    padding: 30px;
+}
+
+.benefit-text h2 {
+    color: var(--navy-blue);
+    margin-bottom: 12px;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    background: var(--navy-blue);
+    color: var(--white);
+    text-align: center;
+    padding: 30px;
+}
+/* ===== FORM PAGES ===== */
+.form-container {
+    max-width: 400px;
+    margin: 100px auto;
+    background: white;
+    padding: 35px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.form-container h2 {
+    text-align: center;
+    color: var(--blue);
+    margin-bottom: 25px;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 18px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 12px;
+    background: var(--blue);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+}
+
+.form-link {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.form-link a {
+    color: var(--blue);
+    text-decoration: none;
+    font-weight: 500;
+}
