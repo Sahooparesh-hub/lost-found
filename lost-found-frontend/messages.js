@@ -7,6 +7,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
+  const container = document.getElementById("messagesContainer");
+  if (!container) return;
+
   try {
     const response = await fetch("http://localhost:5000/api/messages/my-messages", {
       headers: {
@@ -14,9 +17,12 @@ document.addEventListener("DOMContentLoaded", async () => {
       },
     });
 
-    const messages = await response.json();
+    if (!response.ok) {
+      container.innerHTML = "<p>Failed to load messages.</p>";
+      return;
+    }
 
-    const container = document.getElementById("messagesContainer");
+    const messages = await response.json();
     container.innerHTML = "";
 
     messages.forEach(msg => {
@@ -41,6 +47,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
   } catch (error) {
-    console.error(error);
+    console.error("Error loading messages:", error);
+    container.innerHTML = "<p>Server error.</p>";
   }
 });

@@ -50,4 +50,6 @@ function renderDetails(item) {
 
     </div>
   `;
+  const contactBtn = document.getElementById("contactBtn");
+contactBtn.href = `contact.html?itemId=${item._id}`;
 }

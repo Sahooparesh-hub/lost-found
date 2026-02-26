@@ -33,8 +33,8 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
 
     const name = document.getElementById("name")?.value.trim();
-    const contactInfo = document.getElementById("contactInfo")?.value.trim();
-    const message = document.getElementById("message")?.value.trim();
+const contactInfo = document.getElementById("contact")?.value.trim();
+const message = document.getElementById("description")?.value.trim();
 
     if (!name || !contactInfo || !message) {
       showMessage("error", "All fields are required.");
@@ -63,7 +63,11 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      window.location.href = "messages.html";
+      showMessage("success", "Message sent successfully!");
+
+setTimeout(() => {
+  window.location.href = "messages.html";
+}, 1000);
 
     } catch (error) {
       showMessage("error", "Server not reachable.");
