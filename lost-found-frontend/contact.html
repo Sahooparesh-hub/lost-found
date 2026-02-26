@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Owner</title>
+  <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+
+<div class="contact-container">
+  <h2>Contact Owner</h2>
+
+  <form id="contactForm">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="text" id="contact" placeholder="Phone or Email" required>
+    
+    <textarea id="description" placeholder="Description (max 20 words)" rows="3" required></textarea>
+    <div id="wordCountHint" style="font-size: 0.8rem; color: #777; margin-top: -15px; margin-bottom: 15px; text-align: right;">
+        Words: <span id="count">0</span>/20
+    </div>
+
+    <button type="submit">Send</button>
+  </form>
+</div>
+
+<script src="contact.js"></script>
+</body>
+</html>

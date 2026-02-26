@@ -31,3 +31,79 @@
 .status-badge.lost {
   background-color: red;
 }
+
+#messageBtn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#messageBtn:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+#messageBtn:active {
+  transform: translateY(0);
+}
+
+/* Variables (Ensure these match your global theme) */
+:root {
+    --primary-blue: #1a2a6c;
+    --accent-yellow: #fdbb2d;
+    --white: #ffffff;
+}
+
+/* Action area positioning */
+.action-container {
+    width: 100%;
+    max-width: 400px; /* Matches your form/details container width */
+    margin: 20px auto;
+    text-align: center;
+    padding: 0 20px;
+}
+
+/* The Message Button Design */
+.btn-message {
+    display: inline-block;
+    background-color: var(--accent-yellow);
+    color: var(--primary-blue);
+    text-decoration: none;
+    padding: 15px 40px;
+    border-radius: 50px; /* Modern Pill Shape */
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(253, 187, 45, 0.3);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 2px solid transparent;
+}
+
+/* Hover effects for an aesthetic feel */
+.btn-message:hover {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(26, 42, 108, 0.2);
+}
+
+/* Active click state */
+.btn-message:active {
+    transform: translateY(-1px);
+}
+
+/* Responsive tweak */
+@media (max-width: 480px) {
+    .btn-message {
+        width: 100%;
+        padding: 15px 20px;
+    }
+}

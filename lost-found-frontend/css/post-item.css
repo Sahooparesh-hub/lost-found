@@ -150,3 +150,21 @@ textarea {
         padding: 1rem 5%;
     }
 }
+
+.message-box {
+    display: none;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.message-box.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.message-box.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}

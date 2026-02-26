@@ -2,6 +2,8 @@ const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const connectDB = require("./config/db");
+const messageRoutes = require("./routes/messageRoutes");
+
 
 dotenv.config();
 
@@ -27,6 +29,7 @@ app.use(express.urlencoded({ limit: "10mb", extended: true }));
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/user", require("./routes/userRoutes"));
 app.use("/api/items", require("./routes/itemRoutes"));
+app.use("/api/messages", messageRoutes);
 
 // ✅ Root test
 app.get("/", (req, res) => {
