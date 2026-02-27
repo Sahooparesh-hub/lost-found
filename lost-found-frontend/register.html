@@ -2,37 +2,65 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register | Lost & Found</title>
     <link rel="stylesheet" href="css/register.css">
 </head>
 <body>
 
-    <div class="form-container">
-        <h2>Create Account</h2>
-
-        <div id="messageBox" class="message-box"></div>
-
-        <form id="registerForm">
-            <label>Name</label>
-            <input type="text" id="username" required>
-
-            <label>Email</label>
-            <input type="email" id="email" required>
-
-            <label>Mobile Number</label>
-            <input type="tel" id="phone" required>
-
-            <label>Password</label>
-            <input type="password" id="password" required>
-
-            <button type="submit" class="btn btn-primary">Sign Up</button>
-        </form>
-
-        <p class="form-link">
-            Already have an account?
+    <header class="main-header">
+        <div class="logo">Lost<span>&</span>Found</div>
+        <nav>
+            <a href="index.html">Home</a>
             <a href="login.html">Login</a>
-        </p>
-    </div>
+        </nav>
+    </header>
+
+    <main class="register-page-container">
+        <div class="split-layout">
+            
+            <div class="brand-info">
+                <h1>Join the Search. Help the Community.</h1>
+                <p>Register today to gain access to real-time alerts and direct messaging with finders.</p>
+                <ul class="features-list">
+                    <li>✓ Fast Item Reporting</li>
+                    <li>✓ Direct Chat with Owners</li>
+                    <li>✓ Community Trusted Platform</li>
+                </ul>
+            </div>
+
+            <div class="form-container">
+                <h2>Create Account</h2>
+
+                <div id="messageBox" class="message-box"></div>
+
+                <form id="registerForm">
+                    <label>Full Name</label>
+                    <input type="text" id="username" placeholder="e.g. John Doe" required>
+
+                    <label>Email Address</label>
+                    <input type="email" id="email" placeholder="john@example.com" required>
+
+                    <label>Mobile Number</label>
+                    <input type="tel" id="phone" placeholder="+1 (555) 000-0000" required>
+
+                    <label>Password</label>
+                    <input type="password" id="password" placeholder="Min. 8 characters" required>
+
+                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                </form>
+
+                <p class="form-link">
+                    Already have an account?
+                    <a href="login.html">Login</a>
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 Lost & Found Platform. All Rights Reserved. | <a href="#">Terms of Service</a></p>
+    </footer>
 
     <script src="register.js"></script>
 </body>

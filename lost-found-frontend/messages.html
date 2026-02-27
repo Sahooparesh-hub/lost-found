@@ -1,16 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Messages</title>
-  <link rel="stylesheet" href="css/messages.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Messages | Lost & Found</title>
+    <link rel="stylesheet" href="css/messages.css">
 </head>
 <body>
 
-<h2>Received Contact Requests</h2>
+    <header class="header">
+        <div class="logo">Lost<span>&</span>Found</div>
+        <div class="header-right">
+            <a href="dashboard.html" class="btn-dashboard">Dashboard</a>
+        </div>
+    </header>
 
-<div id="messagesContainer" class="message-container"></div>
-<div id="messageBox" class="message-box" style="display:none;"></div>
+    <div class="message-tabs">
+        <button class="tab-btn active" id="allBtn">All Messages</button>
+        <button class="tab-btn" id="receivedBtn">Received</button>
+        <button class="tab-btn" id="sentBtn">Sent</button>
+    </div>
 
-<script src="messages.js"></script>
+    <main class="main-content">
+        <h2 id="pageTitle">All Contact Requests</h2>
+        
+        <div id="messagesContainer" class="message-container">
+            </div>
+        <div id="messageBox" class="message-box" style="display:none;"></div>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Lost & Found. Secure Communication Portal.</p>
+    </footer>
+
+    <script src="messages.js"></script>
 </body>
 </html>

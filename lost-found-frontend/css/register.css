@@ -3,9 +3,9 @@
     --primary-blue: #002347;
     --accent-yellow: #FFD700;
     --white: #ffffff;
-    --bg-light: #f4f7f9;
+    --bg-dark: #001a35; /* Darker navy for better depth */
     --text-dark: #333;
-    --shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    --shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
 }
 
 * {
@@ -15,49 +15,113 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--primary-blue);
-    /* Subtle geometric pattern */
-    background-image: linear-gradient(135deg, #002347 0%, #003366 100%);
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background-color: var(--bg-dark);
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Professional Header --- */
+.main-header {
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 35, 71, 0.95);
+    backdrop-filter: blur(8px);
+    z-index: 10;
+}
+
+.logo {
+    color: var(--white);
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.logo span { color: var(--accent-yellow); }
+
+.main-header nav a {
+    color: var(--white);
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.main-header nav a:hover { color: var(--accent-yellow); }
+
+/* --- Split Layout Logic --- */
+.register-page-container {
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 40px 8%;
 }
 
-/* --- Registration Card --- */
-.form-container {
+.split-layout {
+    display: flex;
+    width: 100%;
+    max-width: 1100px;
     background: var(--white);
-    width: 100%;
-    max-width: 450px;
-    padding: 40px;
-    border-radius: 16px;
-    box-shadow: var(--shadow);
-    position: relative;
+    border-radius: 20px;
     overflow: hidden;
+    box-shadow: var(--shadow);
 }
 
-/* Accent bar at the top of the card */
-.form-container::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background: var(--accent-yellow);
+/* Left Section: Branding */
+.brand-info {
+    flex: 1;
+    background: linear-gradient(135deg, #002347 0%, #004080 100%);
+    padding: 60px;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.brand-info h1 {
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.brand-info p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.features-list {
+    list-style: none;
+}
+
+.features-list li {
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: var(--accent-yellow);
+    font-size: 1.05rem;
+}
+
+/* Right Section: The Form */
+.form-container {
+    flex: 1;
+    padding: 50px 60px;
+    background: var(--white);
+    position: relative;
 }
 
 h2 {
     color: var(--primary-blue);
-    font-size: 2rem;
-    margin-bottom: 30px;
-    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
     font-weight: 700;
 }
 
-/* --- Form Layout --- */
+/* --- Form Elements --- */
 form {
     display: flex;
     flex-direction: column;
@@ -65,19 +129,19 @@ form {
 
 label {
     font-weight: 600;
-    margin-bottom: 8px;
-    color: var(--primary-blue);
-    font-size: 0.9rem;
+    margin-bottom: 6px;
+    color: #555;
+    font-size: 0.85rem;
 }
 
 input {
     width: 100%;
     padding: 12px 15px;
-    margin-bottom: 18px;
+    margin-bottom: 15px;
     border: 1.5px solid #e1e1e1;
     border-radius: 8px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    transition: 0.3s;
 }
 
 input:focus {
@@ -97,26 +161,21 @@ input:focus {
     font-weight: 700;
     cursor: pointer;
     margin-top: 10px;
-    transition: all 0.3s ease;
+    transition: 0.3s;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
 }
 
 .btn-primary:hover {
     background-color: #e6c200;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(230, 194, 0, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.btn-primary:active {
-    transform: translateY(0);
-}
-
-/* --- Bottom Link --- */
+/* --- Bottom Links --- */
 .form-link {
     text-align: center;
     margin-top: 25px;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: #666;
 }
 
@@ -125,35 +184,34 @@ input:focus {
     text-decoration: none;
     font-weight: 700;
     border-bottom: 2px solid var(--accent-yellow);
-    transition: all 0.2s ease;
 }
 
-.form-link a:hover {
-    color: var(--accent-yellow);
-    border-bottom-color: var(--primary-blue);
-}
-
-/* --- Responsive --- */
-@media (max-width: 480px) {
-    .form-container {
-        padding: 30px 20px;
-    }
-}
-
+/* --- Message Boxes --- */
 .message-box {
-    display: none;
     padding: 12px;
     margin-bottom: 15px;
     border-radius: 6px;
-    font-weight: 500;
+    font-size: 0.9rem;
+    display: none;
 }
 
-.message-box.success {
-    background-color: #d4edda;
-    color: #155724;
+.message-box.success { background: #d4edda; color: #155724; }
+.message-box.error { background: #f8d7da; color: #721c24; }
+
+/* --- Footer --- */
+.main-footer {
+    background: var(--bg-dark);
+    padding: 30px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
 }
 
-.message-box.error {
-    background-color: #f8d7da;
-    color: #721c24;
+.main-footer a { color: var(--accent-yellow); text-decoration: none; }
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+    .split-layout { flex-direction: column; }
+    .brand-info { padding: 40px; }
+    .form-container { padding: 40px; }
 }

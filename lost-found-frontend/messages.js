@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", async () => {
+
   const token = localStorage.getItem("token");
   const userId = localStorage.getItem("userId");
 
@@ -8,6 +9,13 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   const container = document.getElementById("messagesContainer");
+  const allBtn = document.getElementById("allBtn");
+  const receivedBtn = document.getElementById("receivedBtn");
+  const sentBtn = document.getElementById("sentBtn");
+  const pageTitle = document.getElementById("pageTitle");
+
+  let allMessages = [];
+
   if (!container) return;
 
   try {
@@ -22,8 +30,23 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
 
-    const messages = await response.json();
+    allMessages = await response.json();
+
+    renderMessages(allMessages); // default = show all
+
+  } catch (error) {
+    console.error("Error loading messages:", error);
+    container.innerHTML = "<p>Server error.</p>";
+  }
+
+  // -------- RENDER FUNCTION --------
+  function renderMessages(messages) {
     container.innerHTML = "";
+
+    if (messages.length === 0) {
+      container.innerHTML = "<p>No messages found.</p>";
+      return;
+    }
 
     messages.forEach(msg => {
       const box = document.createElement("div");
@@ -38,16 +61,53 @@ document.addEventListener("DOMContentLoaded", async () => {
         ${typeLabel}
         <p><strong>Name:</strong> ${msg.name}</p>
         <p><strong>Contact:</strong> ${msg.contactInfo}</p>
-        <p><strong>Item:</strong> ${msg.itemId?.title || ""}</p>
+        <p><strong>Item ID:</strong> ${msg.itemId?._id || ""}</p>
         <p><strong>Message:</strong> ${msg.message}</p>
+        <p><small>${new Date(msg.createdAt).toLocaleString()}</small></p>
         <hr/>
       `;
 
       container.appendChild(box);
     });
-
-  } catch (error) {
-    console.error("Error loading messages:", error);
-    container.innerHTML = "<p>Server error.</p>";
   }
+
+  // -------- FILTER BUTTONS --------
+
+  allBtn.addEventListener("click", () => {
+    setActive(allBtn);
+    pageTitle.textContent = "All Contact Requests";
+    renderMessages(allMessages);
+  });
+
+  receivedBtn.addEventListener("click", () => {
+    setActive(receivedBtn);
+    pageTitle.textContent = "Received Messages";
+
+    const received = allMessages.filter(
+      msg => msg.receiverId === userId
+    );
+
+    renderMessages(received);
+  });
+
+  sentBtn.addEventListener("click", () => {
+    setActive(sentBtn);
+    pageTitle.textContent = "Sent Messages";
+
+    const sent = allMessages.filter(
+      msg => msg.senderId === userId
+    );
+
+    renderMessages(sent);
+  });
+
+  // -------- ACTIVE BUTTON UI --------
+  function setActive(activeBtn) {
+    document.querySelectorAll(".tab-btn").forEach(btn => {
+      btn.classList.remove("active");
+    });
+
+    activeBtn.classList.add("active");
+  }
+
 });

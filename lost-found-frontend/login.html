@@ -2,31 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | Lost & Found</title>
     <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
 
-    <div class="form-container">
-        <h2>Login</h2>
+    <header class="main-header">
+        <div class="logo">Lost<span>&</span>Found</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
 
-        <div id="messageBox" class="message-box"></div>
+    <main class="login-page-container">
+        <div class="split-layout">
+            
+            <div class="brand-info">
+                <h1>Welcome Back to the Community.</h1>
+                <p>Our platform has successfully reunited over <strong>5,000</strong> lost items with their rightful owners.</p>
+                <ul class="features-list">
+                    <li>✓ Secure & Private Communication</li>
+                    <li>✓ Real-time Location Tracking</li>
+                    <li>✓ Verified User Profiles</li>
+                </ul>
+            </div>
 
-        <form id="loginForm">
-            <label>Email</label>
-            <input type="email" id="email" required>
+            <div class="form-container">
+                <h2>Login</h2>
+                <div id="messageBox" class="message-box"></div>
+                <form id="loginForm">
+                    <label>Email</label>
+                    <input type="email" id="email" placeholder="name@company.com" required>
 
-            <label>Password</label>
-            <input type="password" id="password" required>
+                    <label>Password</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+                    <button type="submit" class="btn btn-primary">Sign In</button>
+                </form>
 
-        <p class="form-link">
-            Don’t have an account?
-            <a href="register.html">Register</a>
-        </p>
-    </div>
+                <p class="form-link">
+                    Don’t have an account?
+                    <a href="register.html">Register Now</a>
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 Lost & Found Platform. All Rights Reserved. | <a href="#">Privacy Policy</a></p>
+    </footer>
 
     <script src="login.js"></script>
 </body>

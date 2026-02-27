@@ -1,0 +1,109 @@
+:root {
+    --primary-blue: #1a2a6c;
+    --accent-yellow: #fdbb2d;
+    --white: #ffffff;
+    --text-main: #334155;
+    --bg-light: #f8fafc;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    color: var(--text-main);
+    line-height: 1.6;
+    background-color: var(--white);
+}
+
+/* --- Header --- */
+.main-header {
+    background: var(--primary-blue);
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo { color: var(--white); font-size: 1.5rem; font-weight: 800; text-transform: uppercase; }
+.logo span { color: var(--accent-yellow); }
+
+.main-header nav a {
+    color: var(--white);
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 600;
+    border: 1px solid var(--accent-yellow);
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.main-header nav a:hover { background: var(--accent-yellow); color: var(--primary-blue); }
+
+/* --- Hero Section --- */
+.about-hero {
+    background: linear-gradient(rgba(26, 42, 108, 0.9), rgba(26, 42, 108, 0.9)), 
+                url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&q=80&w=1920');
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 0 10%;
+}
+
+.hero-content h1 { font-size: 3rem; margin-bottom: 20px; }
+.hero-content p { font-size: 1.2rem; max-width: 700px; margin: 0 auto; opacity: 0.9; }
+
+/* --- Mission Pillars --- */
+.mission-section { padding: 80px 10%; background: var(--bg-light); }
+
+.section-title { text-align: center; margin-bottom: 60px; }
+.section-title span { color: var(--primary-blue); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; }
+.section-title h2 { font-size: 2.5rem; color: var(--primary-blue); margin-top: 10px; }
+
+.pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.pillar-card {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.pillar-card:hover { transform: translateY(-10px); }
+.pillar-card .icon { font-size: 3rem; margin-bottom: 20px; }
+.pillar-card h3 { color: var(--primary-blue); margin-bottom: 15px; }
+
+/* --- Stats Bar --- */
+.stats-bar {
+    background: var(--primary-blue);
+    display: flex;
+    justify-content: space-around;
+    padding: 60px 10%;
+    color: white;
+    text-align: center;
+}
+
+.stat-item .number { display: block; font-size: 3rem; font-weight: 800; color: var(--accent-yellow); }
+.stat-item .label { text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px; opacity: 0.8; }
+
+/* --- Footer --- */
+.main-footer { padding: 40px; text-align: center; background: #0f172a; color: white; opacity: 0.8; font-size: 0.9rem; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-content h1 { font-size: 2rem; }
+    .stats-bar { flex-direction: column; gap: 40px; }
+}
