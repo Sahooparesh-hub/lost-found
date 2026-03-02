@@ -3,13 +3,6 @@ const API_URL = "http://localhost:5000/api/user/profile";
 document.addEventListener("DOMContentLoaded", () => {
 
     const token = localStorage.getItem("token");
-    const messageBox = document.getElementById("messageBox");
-
-    function showMessage(type, text) {
-        messageBox.style.display = "block";
-        messageBox.className = `message-box ${type}`;
-        messageBox.innerText = text;
-    }
 
     if (!token) {
         window.location.href = "login.html";
@@ -32,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (response.status === 401) {
                     localStorage.removeItem("token");
                     window.location.href = "login.html";
+                    return;
                 }
                 throw new Error("Failed to fetch profile");
             }
@@ -45,7 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         } catch (error) {
             console.error("Load Profile Error:", error);
-            showMessage("error", "Unable to load profile.");
         }
     }
 
@@ -74,11 +67,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 throw new Error(data.message || "Update failed");
             }
 
-            showMessage("success", "Profile updated successfully");
+            // Optional: reload updated profile silently
+            await loadProfile();
 
         } catch (error) {
             console.error("Update Error:", error);
-            showMessage("error", "Profile update failed.");
         }
     });
 

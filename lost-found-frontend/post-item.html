@@ -2,59 +2,94 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Post Lost Item | Lost & Found</title>
     <link rel="stylesheet" href="css/post-item.css">
 </head>
 <body>
 
-<header class="header">
-    <div class="logo">Lost<span>&</span>Found</div>
-    <div class="nav-text">Post Lost Item</div>
-</header>
+    <header class="main-header">
+        <div class="logo">Lost<span>&</span>Found</div>
+        <nav class="nav-links">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="found-items.html">Found Items</a>
+            <div class="nav-text">Reporting Portal</div>
+        </nav>
+    </header>
 
-<div class="form-container">
-    <h2>Report a Lost Item</h2>
+    <main class="post-page-wrapper">
+        <div class="split-layout">
+            
+            <div class="form-guide">
+                <h1>Help us find it.</h1>
+                <p>Providing accurate details increases the chances of recovery by <strong>80%</strong>.</p>
+                <div class="guide-steps">
+                    <div class="step">
+                        <span class="step-icon">📸</span>
+                        <p><strong>Clear Photos:</strong> Use high-quality images of the actual item.</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-icon">📍</span>
+                        <p><strong>Precise Location:</strong> Mention landmarks or specific rooms.</p>
+                    </div>
+                    <div class="step">
+                        <span class="step-icon">🔒</span>
+                        <p><strong>Privacy:</strong> Your contact info is only shared with verified finders.</p>
+                    </div>
+                </div>
+            </div>
 
-    <form id="postItemForm">
+            <div class="form-container">
+                <h2>Report a Lost Item</h2>
+                <form id="postItemForm">
+                    
+                    <div class="section-label">Item Specifications</div>
+                    
+                    <label>Item Image</label>
+                    <div class="file-upload-wrapper">
+                        <input type="file" id="image" accept="image/*" required>
+                    </div>
 
-    <label>Item Image</label>
-    <input type="file" id="image" accept="image/*" required>
+                    <label>Item Name</label>
+                    <input type="text" id="name" placeholder="e.g. MacBook Pro 14 inch" required>
 
-    <label>Item Name</label>
-    <input type="text" id="name" placeholder="Enter item name" required>
+                    <label>Item Details</label>
+                    <textarea id="description" rows="3" placeholder="Include serial numbers, stickers, or unique marks..." required></textarea>
 
-    <label>Item Details</label>
-    <textarea id="description" rows="3" placeholder="Describe the item" required></textarea>
+                    <div class="section-label">Owner Information</div>
+                    
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>Full Name</label>
+                            <input type="text" id="ownerName" placeholder="Enter name" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Phone Number</label>
+                            <input type="text" id="ownerPhone" placeholder="Enter phone" required>
+                        </div>
+                    </div>
 
-    <!-- OWNER INFORMATION SECTION -->
-    <h3 style="margin:20px 0 10px 0; color:#002347;">Owner Information</h3>
+                    <label>Email Address</label>
+                    <input type="email" id="ownerEmail" placeholder="Enter email" required>
 
-    <label>Owner Name</label>
-    <input type="text" id="ownerName" placeholder="Enter owner name" required>
+                    <div class="section-label">Incident Details</div>
 
-    <label>Owner Email</label>
-    <input type="text" id="ownerEmail" placeholder="Enter owner email" required>
+                    <label>Lost Location</label>
+                    <input type="text" id="location" placeholder="e.g. Central Library, 2nd Floor" required>
 
-    <label>Owner Phone Number</label>
-    <input type="text" id="ownerPhone" placeholder="Enter phone number" required>
+                    <label>Date & Time Noticed</label>
+                    <input type="datetime-local" id="lostTime" required>
 
-    <!-- CONTINUE ORIGINAL FORM -->
+                    <button type="submit" class="btn btn-primary">Publish Report</button>
+                </form>
+            </div>
+        </div>
+    </main>
 
-    <label>Lost Location</label>
-    <input type="text" id="location" placeholder="Where was it lost?" required>
+    <footer class="main-footer">
+        <p>&copy; 2026 Lost & Found Platform. Helping you find what matters most.</p>
+    </footer>
 
-    <label>Lost Date & Time</label>
-    <input type="datetime-local" id="lostTime" required>
-
-    <button type="submit" class="btn btn-primary">
-        Submit
-    </button>
-
-</form>
-
-</div>
-
-<script src="post-item.js"></script>
-
+    <script src="post-item.js"></script>
 </body>
 </html>
