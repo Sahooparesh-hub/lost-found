@@ -103,3 +103,105 @@
     background: var(--accent-yellow);
     color: var(--primary-blue);
 }
+
+/* ===============================
+   CATEGORY FILTER BUTTON
+================================= */
+
+#categoryBtn,
+#foundCategoryBtn {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  margin-left: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+
+#categoryBtn:hover,
+#foundCategoryBtn:hover {
+  background: #1d4ed8;
+}
+
+
+/* ===============================
+   CATEGORY DROPDOWN CONTAINER
+================================= */
+
+.category-dropdown {
+  width: 100%;
+  max-width: 600px;
+  margin: 10px auto 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  padding: 10px;
+}
+
+
+/* Hidden state */
+
+.hidden {
+  display: none;
+}
+
+
+/* ===============================
+   CATEGORY CHIP STYLE
+================================= */
+
+.category-chip {
+  border: 1px solid #ddd;
+  background: #fff;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.category-chip:hover {
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
+}
+
+
+/* ===============================
+   SEARCH BAR ALIGNMENT
+================================= */
+
+.hero-search-container,
+.search-bar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+
+/* ===============================
+   MOBILE RESPONSIVE
+================================= */
+
+@media (max-width: 600px) {
+
+  .hero-search-container,
+  .search-bar-container {
+    flex-direction: column;
+  }
+
+  #categoryBtn,
+  #foundCategoryBtn {
+    width: 100%;
+  }
+
+  .category-dropdown {
+    justify-content: center;
+  }
+
+}

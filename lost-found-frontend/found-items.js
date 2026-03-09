@@ -1,68 +1,125 @@
 let foundItems = [];
+let activeCategory = "all";
 
 document.addEventListener("DOMContentLoaded", async () => {
 
-  const container = document.getElementById("foundItemsGrid");
+const container = document.getElementById("foundItemsGrid");
 
-  try {
+try {
 
-    const response = await fetch("http://127.0.0.1:5000/api/items/found");
+const response = await fetch("http://127.0.0.1:5000/api/items/found");
 
-    if (!response.ok) {
-      throw new Error("Network error");
-    }
+foundItems = await response.json();
 
-    foundItems = await response.json();
-    renderFound(foundItems);
+renderFound(foundItems);
 
-  } catch (error) {
-    console.error("Error loading found items:", error);
-    container.innerHTML = "<p>Error loading found items.</p>";
-  }
+}
+catch(error){
 
-  document.getElementById("foundSearchInput")
-    .addEventListener("input", handleFoundSearch);
+console.error(error);
+
+container.innerHTML="<p>Error loading found items.</p>";
+
+}
+
+document
+.getElementById("foundSearchInput")
+.addEventListener("input",applyFoundFilters);
+
+document
+.getElementById("foundCategoryBtn")
+.addEventListener("click",()=>{
+
+document
+.getElementById("foundCategoryDropdown")
+.classList
+.toggle("hidden");
+
 });
 
-function renderFound(items) {
 
-  const container = document.getElementById("foundItemsGrid");
-  container.innerHTML = "";
+document
+.querySelectorAll("#foundCategoryDropdown .category-chip")
+.forEach(btn=>{
 
-  if (!items.length) {
-    container.innerHTML = "<p>No found items yet.</p>";
-    return;
-  }
+btn.addEventListener("click",()=>{
 
-  items.forEach(item => {
+activeCategory=btn.dataset.category;
 
-    const div = document.createElement("div");
-    div.classList.add("item-card", "found-border");
+applyFoundFilters();
 
-    div.innerHTML = `
-      <div class="status-badge found">FOUND</div>
-      <h3>${item.name}</h3>
-      <p><strong>Location:</strong> ${item.location}</p>
-    `;
+});
 
-    // 👇 Same details page
-    div.addEventListener("click", () => {
-      window.location.href = `item-card.html?id=${item._id}`;
-    });
+});
 
-    container.appendChild(div);
-  });
+});
+
+
+function applyFoundFilters(){
+
+const value=
+document
+.getElementById("foundSearchInput")
+.value
+.toLowerCase()
+.trim();
+
+let filtered = foundItems.filter(item =>
+item.name.toLowerCase().includes(value)
+);
+
+if(activeCategory!=="all"){
+
+filtered = filtered.filter(item =>
+item.category === activeCategory
+);
+
+}
+
+renderFound(filtered);
+
 }
 
 
+function renderFound(items){
 
-function handleFoundSearch(e) {
+const container=document.getElementById("foundItemsGrid");
 
-  const value = e.target.value.toLowerCase().trim();
+container.innerHTML="";
 
-  const filtered = foundItems.filter(item =>
-    item.name.toLowerCase().includes(value)
-  );
+if(!items.length){
 
-  renderFound(filtered);
+container.innerHTML="<p>No found items.</p>";
+return;
+
+}
+
+items.forEach(item=>{
+
+const div=document.createElement("div");
+
+div.classList.add("item-card","found-border");
+
+div.innerHTML=`
+
+<div class="status-badge found">FOUND</div>
+
+<h3>${item.name}</h3>
+
+<p><strong>Category:</strong> ${item.category}</p>
+
+<p><strong>Location:</strong> ${item.location}</p>
+
+`;
+
+div.addEventListener("click",()=>{
+
+window.location.href=`item-card.html?id=${item._id}`;
+
+});
+
+container.appendChild(div);
+
+});
+
 }

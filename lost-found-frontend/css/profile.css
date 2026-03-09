@@ -182,3 +182,25 @@ input:focus { outline: none; border-color: var(--primary-blue); background: #fff
     .user-meta h2 { text-align: center; }
     .footer-content { flex-direction: column; text-align: center; }
 }
+
+/* === Message Box === */
+.message-box {
+    display: none;
+    padding: 14px 18px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.message-box.success {
+    background-color: #e6f9f0;
+    color: #0f5132;
+    border: 1px solid #badbcc;
+}
+
+.message-box.error {
+    background-color: #fdecea;
+    color: #842029;
+    border: 1px solid #f5c2c7;
+}

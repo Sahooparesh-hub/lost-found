@@ -1,62 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard | Lost & Found</title>
-    <link rel="stylesheet" href="css/dashboard.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard | Lost & Found</title>
+<link rel="stylesheet" href="css/dashboard.css">
 </head>
+
 <body>
 
-    <div class="main-wrapper">
-        <header class="dashboard-header">
-    <div class="left-section">
-        <div class="logo-text">Lost<span>&</span>Found</div>
-    </div>
+<div class="main-wrapper">
 
-    <div class="right-section">
-        <button id="themeToggle" class="theme-toggle">
-            🌙
-        </button>
-    </div>
+<header class="dashboard-header">
+<div class="left-section">
+<div class="logo-text">Lost<span>&</span>Found</div>
+</div>
 </header>
 
-        <section class="hero-nav">
-            <h1>What would you like to do?</h1>
+<section class="hero-nav">
 
-            <!-- 🔎 Search Bar moved here -->
-            <div class="hero-search-container">
-                <input type="text" id="searchInput" placeholder="Search items...">
-            </div>
+<h1>What would you like to do?</h1>
 
-            <div class="nav-buttons-container">
-                <a href="profile.html" class="nav-card">
-                    <span class="icon">👤</span>
-                    Profile
-                </a>
+<div class="hero-search-container">
 
-                <a href="post-item.html" class="nav-card">
-                    <span class="icon">➕</span>
-                    Post Lost Item
-                </a>
+<input type="text" id="searchInput" placeholder="Search items...">
 
-                <a href="found-items.html" class="nav-card">
-                    <span class="icon">🔍</span>
-                    Found Items
-                </a>
+<button id="categoryBtn">Category ▼</button>
 
-                <a href="messages.html" class="nav-card">
-                    <span class="icon">💬</span>
-                    Messages
-                </a>
-            </div>
-        </section>
+</div>
 
-        <main class="content-area">
-            <div id="itemsContainer"></div>
-        </main>
-    </div>
+<div id="categoryDropdown" class="category-dropdown hidden">
 
-    <script src="dashboard.js"></script>
+<button class="category-chip" data-category="all">All</button>
+<button class="category-chip" data-category="Electronics">Electronics</button>
+<button class="category-chip" data-category="Documents">Documents</button>
+<button class="category-chip" data-category="Clothing">Clothing</button>
+<button class="category-chip" data-category="Accessories">Accessories</button>
+<button class="category-chip" data-category="Bags">Bags</button>
+<button class="category-chip" data-category="Others">Others</button>
+
+</div>
+
+<div class="nav-buttons-container">
+
+<a href="profile.html" class="nav-card">
+<span class="icon">👤</span>
+Profile
+</a>
+
+<a href="post-item.html" class="nav-card">
+<span class="icon">➕</span>
+Post Lost Item
+</a>
+
+<a href="found-items.html" class="nav-card">
+<span class="icon">🔍</span>
+Found Items
+</a>
+
+<a href="messages.html" class="nav-card">
+<span class="icon">💬</span>
+Messages
+</a>
+
+</div>
+
+</section>
+
+<main class="content-area">
+<div id="itemsContainer"></div>
+</main>
+
+</div>
+
+<script src="dashboard.js"></script>
+
 </body>
 </html>

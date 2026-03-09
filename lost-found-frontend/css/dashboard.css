@@ -227,52 +227,67 @@ body {
 }
 
 /* --- Header --- */
+/* --- HEADER (Mapped from Messages Style) --- */
 .dashboard-header {
-    background: var(--primary-blue);
-    padding: 15px 5%;
+    background-color: var(--primary-blue) !important;
+    /* Uses the same 8% horizontal padding as the messages page */
+    padding: 15px 8% !important; 
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
+/* Logo styling to match .logo from messages */
 .logo-text {
+    color: var(--white);
+    font-size: 1.5rem;
     font-weight: 800;
-    font-size: 1.4rem;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-.logo-text span { color: var(--accent-yellow); }
+/* Gold span for the '&' */
+.logo-text span { 
+    color: var(--accent-yellow) !important; 
+}
 
-/* Search Bar */
-.search-bar-container {
-    flex: 1;
-    max-width: 500px;
-    margin: 0 20px;
+/* Profile button styled exactly like .btn-dashboard */
+.top-profile-btn {
+    background: transparent !important;
+    color: var(--white) !important;
+    padding: 8px 20px !important;
+    border: 2px solid var(--accent-yellow) !important;
+    border-radius: 20px !important;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
     display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
 }
 
-.search-bar-container input {
-    width: 100%;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 25px 0 0 25px;
-    outline: none;
+.top-profile-btn:hover {
+    background: var(--accent-yellow) !important;
+    color: var(--primary-blue) !important;
 }
 
-.search-bar-container button {
+/* Small adjustments for the internal avatar if needed */
+.avatar-sm {
     background: var(--accent-yellow);
-    border: none;
-    padding: 0 20px;
-    border-radius: 0 25px 25px 0;
-    font-weight: 700;
     color: var(--primary-blue);
-    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 800;
 }
 
 /* Profile Button on Right */
@@ -411,31 +426,189 @@ body {
     background: white;
 }
 
-.theme-toggle {
-    padding: 8px 12px;
-    border-radius: 20px;
-    border: 1px solid #ccc;
-    background: white;
-    cursor: pointer;
+/* --- Search & Categorize Layout --- */
+.hero-search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Spacing between input and button */
+    margin: 25px 0 10px 0;
+}
+
+.hero-search-container input {
+    width: 40%;
+    max-width: 400px;
+    padding: 14px 25px;
+    border-radius: 30px;
+    border: none;
     font-size: 16px;
+    outline: none;
 }
 
-body.dark-mode {
-    background-color: #121212;
-    color: #f1f1f1;
+.btn-categorize {
+    background: var(--accent-yellow);
+    color: var(--primary-blue);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-body.dark-mode .dashboard-header {
-    background-color: #1e1e1e;
+.btn-categorize:hover {
+    background: var(--white);
+    transform: translateY(-2px);
 }
 
-body.dark-mode .nav-card {
-    background-color: #2a2a2a;
-    color: #f1f1f1;
+/* --- Category Drawer --- */
+.category-drawer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, opacity 0.3s ease;
+    opacity: 0;
+    margin-bottom: 20px;
 }
 
-body.dark-mode .hero-search-container input {
-    background-color: #2a2a2a;
+.category-drawer.active {
+    max-height: 100px; /* Adjust based on content */
+    opacity: 1;
+    margin-top: 15px;
+}
+
+.category-list {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.cat-pill {
+    background: rgba(255, 255, 255, 0.15);
     color: white;
-    border: 1px solid #444;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.cat-pill:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: var(--accent-yellow);
+}
+
+.cat-pill.active {
+    background: var(--accent-yellow);
+    color: var(--primary-blue);
+    border-color: var(--accent-yellow);
+    font-weight: 700;
+}
+/* ===============================
+   CATEGORY FILTER BUTTON
+================================= */
+
+#categoryBtn,
+#foundCategoryBtn {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  margin-left: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s ease;
+}
+
+#categoryBtn:hover,
+#foundCategoryBtn:hover {
+  background: #1d4ed8;
+}
+
+
+/* ===============================
+   CATEGORY DROPDOWN CONTAINER
+================================= */
+
+.category-dropdown {
+  width: 100%;
+  max-width: 600px;
+  margin: 10px auto 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  padding: 10px;
+}
+
+
+/* Hidden state */
+
+.hidden {
+  display: none;
+}
+
+
+/* ===============================
+   CATEGORY CHIP STYLE
+================================= */
+
+.category-chip {
+  border: 1px solid #ddd;
+  background: #fff;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.category-chip:hover {
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
+}
+
+
+/* ===============================
+   SEARCH BAR ALIGNMENT
+================================= */
+
+.hero-search-container,
+.search-bar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+
+/* ===============================
+   MOBILE RESPONSIVE
+================================= */
+
+@media (max-width: 600px) {
+
+  .hero-search-container,
+  .search-bar-container {
+    flex-direction: column;
+  }
+
+  #categoryBtn,
+  #foundCategoryBtn {
+    width: 100%;
+  }
+
+  .category-dropdown {
+    justify-content: center;
+  }
+
 }
