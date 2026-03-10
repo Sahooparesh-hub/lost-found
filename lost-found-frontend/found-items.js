@@ -102,13 +102,29 @@ div.classList.add("item-card","found-border");
 
 div.innerHTML=`
 
-<div class="status-badge found">FOUND</div>
+<div class="item-image-wrapper">
 
-<h3>${item.name}</h3>
+${item.image ? 
+`<img src="${item.image}" class="item-image">`
+:
+`<img src="images/no-image.png" class="item-image">`
+}
 
-<p><strong>Category:</strong> ${item.category}</p>
+<span class="status-badge found">FOUND</span>
 
-<p><strong>Location:</strong> ${item.location}</p>
+</div>
+
+<div class="card-body">
+
+<h3 class="item-title">${item.name}</h3>
+
+<p class="item-location">📍 ${item.location}</p>
+
+<p class="item-category">Category: ${item.category}</p>
+
+<button class="view-btn">View Details</button>
+
+</div>
 
 `;
 

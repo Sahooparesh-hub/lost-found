@@ -9,67 +9,91 @@
 
 <body>
 
-<div class="main-wrapper">
+<div class="dashboard-layout">
 
-<header class="dashboard-header">
-<div class="left-section">
-<div class="logo-text">Lost<span>&</span>Found</div>
+<!-- SIDEBAR -->
+<aside class="sidebar">
+
+<div class="sidebar-logo">
+Lost<span>&</span>Found
 </div>
+
+<nav class="sidebar-menu">
+
+<a href="dashboard.html">🏠 Dashboard</a>
+
+<a href="post-item.html">➕ Post Item</a>
+
+<a href="found-items.html">🔍 Found Items</a>
+
+<a href="messages.html">💬 Messages</a>
+
+<a href="profile.html">👤 Profile</a>
+
+</nav>
+
+</aside>
+
+
+<!-- MAIN AREA -->
+<div class="main-content">
+
+<header class="topbar">
+
+    
+<input type="text" id="searchInput" placeholder="Search lost items...">
+
+<button id="categoryBtn">Category</button>
+
 </header>
-
-<section class="hero-nav">
-
-<h1>What would you like to do?</h1>
-
-<div class="hero-search-container">
-
-<input type="text" id="searchInput" placeholder="Search items...">
-
-<button id="categoryBtn">Category ▼</button>
-
-</div>
 
 <div id="categoryDropdown" class="category-dropdown hidden">
 
 <button class="category-chip" data-category="all">All</button>
+
 <button class="category-chip" data-category="Electronics">Electronics</button>
+
 <button class="category-chip" data-category="Documents">Documents</button>
+
 <button class="category-chip" data-category="Clothing">Clothing</button>
+
 <button class="category-chip" data-category="Accessories">Accessories</button>
+
 <button class="category-chip" data-category="Bags">Bags</button>
+
 <button class="category-chip" data-category="Others">Others</button>
 
 </div>
 
-<div class="nav-buttons-container">
+<section class="stats">
 
-<a href="profile.html" class="nav-card">
-<span class="icon">👤</span>
-Profile
-</a>
+<div class="stat-card">
+<h3>Total Items</h3>
+<p id="totalItems">0</p>
+</div>
 
-<a href="post-item.html" class="nav-card">
-<span class="icon">➕</span>
-Post Lost Item
-</a>
+<div class="stat-card">
+<h3>Lost Items</h3>
+<p id="lostItems">0</p>
+</div>
 
-<a href="found-items.html" class="nav-card">
-<span class="icon">🔍</span>
-Found Items
-</a>
-
-<a href="messages.html" class="nav-card">
-<span class="icon">💬</span>
-Messages
-</a>
-
+<div class="stat-card">
+<h3>Found Items</h3>
+<p id="foundItems">0</p>
 </div>
 
 </section>
 
-<main class="content-area">
+
+<section class="items-section">
+
+<h2>Latest Items</h2>
+
 <div id="itemsContainer"></div>
-</main>
+
+</section>
+
+</div>
 
 </div>
 

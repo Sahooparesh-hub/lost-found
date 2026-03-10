@@ -18,6 +18,8 @@ headers:{ "Authorization":`Bearer ${token}` }
 
 allItems = await response.json();
 
+updateStats(allItems);
+
 renderItems(allItems);
 
 }
@@ -45,9 +47,19 @@ document
 
 btn.addEventListener("click",()=>{
 
+document
+.querySelectorAll(".category-chip")
+.forEach(c=>c.classList.remove("active"));
+
+btn.classList.add("active");
+
 activeCategory = btn.dataset.category;
 
 applyFilters();
+
+document
+.getElementById("categoryDropdown")
+.classList.add("hidden");
 
 });
 
@@ -92,6 +104,23 @@ renderItems(filtered);
 
 }
 
+function updateStats(items){
+
+const total = items.length;
+
+const lost = items.filter(item =>
+item.status.toLowerCase() === "lost"
+).length;
+
+const found = items.filter(item =>
+item.status.toLowerCase() === "found"
+).length;
+
+document.getElementById("totalItems").textContent = total;
+document.getElementById("lostItems").textContent = lost;
+document.getElementById("foundItems").textContent = found;
+
+}
 
 function renderItems(items){
 
@@ -112,17 +141,33 @@ const div=document.createElement("div");
 
 div.classList.add("item-card");
 
-div.innerHTML=`
+div.innerHTML = `
 
-${item.image ? `<img src="${item.image}" class="item-image"/>` : ""}
+<div class="item-image-wrapper">
 
-<h3>${item.name}</h3>
+${item.image ? 
+`<img src="${item.image}" class="item-image"/>` 
+:
+`<img src="images/no-image.png" class="item-image"/>`
+}
 
-<p><strong>Category:</strong> ${item.category}</p>
+<span class="status-badge ${item.status.toLowerCase()}">
+${item.status}
+</span>
 
-<p><strong>Location:</strong> ${item.location}</p>
+</div>
 
-<p><strong>Status:</strong> ${item.status}</p>
+<div class="card-body">
+
+<h3 class="item-title">${item.name}</h3>
+
+<p class="item-location">📍 ${item.location}</p>
+
+<p class="item-category">Category: ${item.category}</p>
+
+<button class="view-btn">View Details</button>
+
+</div>
 
 `;
 

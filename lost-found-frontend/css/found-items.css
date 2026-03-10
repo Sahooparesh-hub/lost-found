@@ -35,36 +35,96 @@
 }
 
 /* Grid and Cards */
-.items-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 25px;
-    padding-top: 20px;
+.items-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+
+gap:25px;
+
+padding:30px;
+
 }
 
-.item-card {
-    position: relative;
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: var(--transition);
-    text-align: left;
+.item-card{
+
+background:white;
+
+border-radius:12px;
+
+overflow:hidden;
+
+box-shadow:0 4px 12px rgba(0,0,0,0.08);
+
+cursor:pointer;
+
+transition:all 0.25s ease;
+
+}
+
+.item-card:hover{
+
+transform:translateY(-6px);
+
+box-shadow:0 12px 30px rgba(0,0,0,0.15);
+
+}
+
+
+.item-image-wrapper{
+
+position:relative;
+
+height:180px;
+
+overflow:hidden;
+
+}
+
+
+.item-image{
+
+width:100%;
+
+height:100%;
+
+object-fit:cover;
+
+transition:transform 0.3s;
+
+}
+
+.item-card:hover .item-image{
+
+transform:scale(1.08);
+
 }
 
 .found-border {
     border-top: 5px solid #27ae60; /* Green for "Found" */
 }
 
-.status-badge {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.7rem;
-    font-weight: 800;
-    color: white;
+.status-badge{
+
+position:absolute;
+
+top:10px;
+
+left:10px;
+
+background:#22c55e;
+
+color:white;
+
+padding:6px 12px;
+
+font-size:12px;
+
+font-weight:bold;
+
+border-radius:20px;
+
 }
 
 .status-badge.found {
@@ -104,6 +164,42 @@
     color: var(--primary-blue);
 }
 
+.card-body{
+
+padding:15px;
+
+}
+
+.item-title{
+
+font-size:18px;
+
+font-weight:600;
+
+margin-bottom:8px;
+
+}
+
+.item-location{
+
+font-size:14px;
+
+color:#555;
+
+margin-bottom:5px;
+
+}
+
+.item-category{
+
+font-size:13px;
+
+color:#777;
+
+margin-bottom:12px;
+
+}
+
 /* ===============================
    CATEGORY FILTER BUTTON
 ================================= */
@@ -126,20 +222,64 @@
   background: #1d4ed8;
 }
 
+.view-btn{
+
+width:100%;
+
+padding:8px;
+
+border:none;
+
+border-radius:6px;
+
+background:#2563eb;
+
+color:white;
+
+font-size:14px;
+
+cursor:pointer;
+
+transition:background 0.2s;
+
+}
+
+.view-btn:hover{
+
+background:#1d4ed8;
+
+}
 
 /* ===============================
    CATEGORY DROPDOWN CONTAINER
 ================================= */
 
-.category-dropdown {
-  width: 100%;
-  max-width: 600px;
-  margin: 10px auto 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-  padding: 10px;
+.category-dropdown{
+
+position:absolute;
+
+top:70px;
+
+right:40px;
+
+background:white;
+
+padding:15px;
+
+border-radius:10px;
+
+box-shadow:0 6px 20px rgba(0,0,0,0.15);
+
+display:flex;
+
+flex-wrap:wrap;
+
+gap:10px;
+
+width:320px;
+
+z-index:1000;
+
 }
 
 
@@ -154,20 +294,38 @@
    CATEGORY CHIP STYLE
 ================================= */
 
-.category-chip {
-  border: 1px solid #ddd;
-  background: #fff;
-  padding: 8px 14px;
-  border-radius: 20px;
-  font-size: 13px;
-  cursor: pointer;
-  transition: all 0.2s ease;
+.category-chip{
+
+border:1px solid #ddd;
+
+background:#f9f9f9;
+
+padding:8px 14px;
+
+border-radius:20px;
+
+cursor:pointer;
+
+font-size:14px;
+
+transition:all 0.2s;
+
 }
 
-.category-chip:hover {
-  background: #2563eb;
-  color: white;
-  border-color: #2563eb;
+.category-chip:hover{
+
+background:#2563eb;
+
+color:white;
+
+border-color:#2563eb;
+
+}
+
+.hidden{
+
+display:none;
+
 }
 
 
@@ -203,5 +361,13 @@
   .category-dropdown {
     justify-content: center;
   }
+
+}
+
+body{
+
+background:#f4f6fb;
+
+font-family:Arial, sans-serif;
 
 }
