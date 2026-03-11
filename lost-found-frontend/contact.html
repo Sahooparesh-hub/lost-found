@@ -1,29 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>Contact Owner</title>
-  <link rel="stylesheet" href="css/contact.css">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact Owner | Lost & Found</title>
+
+<link rel="stylesheet" href="css/contact.css">
+
 </head>
+
 <body>
 
+<div class="page-wrapper">
+
 <div class="contact-container">
-  <h2>Contact Owner</h2>
 
-  <div id="messageBox" class="message-box" style="display:none;"></div>
+<div class="contact-header">
 
-  <form id="contactForm">
-    <input type="text" id="name" placeholder="Your Name" required>
-    <input type="text" id="contact" placeholder="Phone or Email" required>
-    
-    <textarea id="description" placeholder="Description (max 20 words)" rows="3" required></textarea>
-    <div id="wordCountHint" style="font-size: 0.8rem; color: #777; margin-top: -15px; margin-bottom: 15px; text-align: right;">
-        Words: <span id="count">0</span>/20
-    </div>
+<h2>Contact Item Owner</h2>
 
-    <button type="submit">Send</button>
-  </form>
+<p>Send your details to claim or inquire about this item.</p>
+
+</div>
+
+<div id="messageBox" class="message-box" style="display:none;"></div>
+
+<form id="contactForm">
+
+<div class="input-group">
+
+<label>Your Name</label>
+<input type="text" id="name" placeholder="Enter your full name" required>
+
+</div>
+
+
+<div class="input-group">
+
+<label>Phone or Email</label>
+<input type="text" id="contact" placeholder="Enter phone number or email" required>
+
+</div>
+
+
+<div class="input-group">
+
+<label>Describe the item briefly</label>
+
+<textarea id="description"
+placeholder="Example: Black wallet with student ID inside"
+rows="3"
+required></textarea>
+
+<div class="word-counter">
+
+<span id="count">0</span>/20 words
+
+</div>
+
+</div>
+
+
+<button type="submit" class="submit-btn">
+
+Send Message
+
+</button>
+
+</form>
+
+</div>
+
 </div>
 
 <script src="contact.js"></script>
+
 </body>
+
 </html>

@@ -4,11 +4,21 @@ let activeCategory = "all";
 document.addEventListener("DOMContentLoaded", async () => {
 
 const token = localStorage.getItem("token");
+const username = localStorage.getItem("username") || "User";
 
 if (!token) {
 window.location.href = "login.html";
 return;
 }
+
+/* ---------- SIDEBAR USER NAME ---------- */
+
+const nameElement = document.getElementById("sidebarUserName");
+if(nameElement){
+nameElement.textContent = username;
+}
+
+/* ---------- LOAD ITEMS ---------- */
 
 try {
 
@@ -22,6 +32,10 @@ updateStats(allItems);
 
 renderItems(allItems);
 
+/* ---------- UPDATE REPUTATION ---------- */
+
+updateReputation(allItems);
+
 }
 catch(error){
 
@@ -32,10 +46,13 @@ document.getElementById("itemsContainer").innerHTML =
 
 }
 
+/* ---------- SEARCH FILTER ---------- */
+
 document
 .getElementById("searchInput")
 .addEventListener("input", applyFilters);
 
+/* ---------- CATEGORY DROPDOWN ---------- */
 
 document
 .getElementById("categoryBtn")
@@ -68,6 +85,8 @@ document
 });
 
 
+/* ---------- CATEGORY DROPDOWN FUNCTION ---------- */
+
 function toggleCategoryDropdown(){
 
 document
@@ -78,6 +97,8 @@ document
 }
 
 
+/* ---------- FILTER ITEMS ---------- */
+
 function applyFilters(){
 
 const searchValue =
@@ -86,7 +107,6 @@ document
 .value
 .toLowerCase()
 .trim();
-
 
 let filtered = allItems.filter(item =>
 item.name.toLowerCase().includes(searchValue)
@@ -103,6 +123,9 @@ item.category === activeCategory
 renderItems(filtered);
 
 }
+
+
+/* ---------- DASHBOARD STATS ---------- */
 
 function updateStats(items){
 
@@ -121,6 +144,54 @@ document.getElementById("lostItems").textContent = lost;
 document.getElementById("foundItems").textContent = found;
 
 }
+
+
+/* ---------- USER REPUTATION SYSTEM ---------- */
+
+function updateReputation(items){
+
+const userId = localStorage.getItem("userId");
+
+/* Items returned (found items posted by user) */
+
+const returned = items.filter(item =>
+item.status.toLowerCase() === "found" &&
+item.userId === userId
+).length;
+
+/* Items reported lost */
+
+const lost = items.filter(item =>
+item.status.toLowerCase() === "lost" &&
+item.userId === userId
+).length;
+
+/* Simple trust score formula */
+
+let trustScore = 4.0;
+
+if(returned > 0){
+trustScore = 4 + (returned * 0.2);
+}
+
+if(trustScore > 5){
+trustScore = 5;
+}
+
+/* Update Sidebar */
+
+const returnedEl = document.getElementById("itemsReturned");
+const lostEl = document.getElementById("itemsLost");
+const scoreEl = document.getElementById("trustScore");
+
+if(returnedEl) returnedEl.textContent = returned;
+if(lostEl) lostEl.textContent = lost;
+if(scoreEl) scoreEl.textContent = trustScore.toFixed(1);
+
+}
+
+
+/* ---------- RENDER ITEM CARDS ---------- */
 
 function renderItems(items){
 

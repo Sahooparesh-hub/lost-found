@@ -6,6 +6,60 @@
     <link rel="stylesheet" href="css/index.css">
 
 </head>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+let currentIndex = 0;
+
+const cards = document.querySelectorAll(".testimonial-card");
+
+function updateCarousel(){
+
+    if(cards.length === 0) return;
+
+    cards.forEach(card=>{
+        card.classList.remove("active");
+    });
+
+    if(cards[currentIndex]){
+        cards[currentIndex].classList.add("active");
+    }
+
+}
+
+window.nextSlide = function(){
+
+    currentIndex++;
+
+    if(currentIndex >= cards.length){
+        currentIndex = 0;
+    }
+
+    updateCarousel();
+
+}
+
+window.prevSlide = function(){
+
+    currentIndex--;
+
+    if(currentIndex < 0){
+        currentIndex = cards.length - 1;
+    }
+
+    updateCarousel();
+
+}
+
+updateCarousel();
+
+});
+
+</script>
+
+
 <body>
 
     <header class="header">
@@ -78,18 +132,67 @@
 
     </section>
 
-    <!-- SOCIAL PROOF -->
-<section class="social-proof">
-    <div class="container">
-        <h2>Heartwarming Reunions</h2>
-        <div class="testimonial-card">
-            <p class="quote">
-                “I thought I’d never see my gold chain again after losing it at the park. 
-                Within two days of posting here, a kind stranger reached out. I’m forever grateful!”
-            </p>
-            <p class="author">— Omm Prakash Das, 3rd year B.Tech student</p>
+    <!-- ===== TESTIMONIAL SECTION ===== -->
+<section class="testimonials">
+
+    <h2 class="testimonial-title">People Who Found Hope Again</h2>
+
+    <div class="testimonial-wrapper">
+
+        <button class="arrow left" onclick="prevSlide()">❮</button>
+
+        <div class="testimonial-container" id="testimonialContainer">
+
+            <!-- Card 1 -->
+            <div class="testimonial-card">
+                <img src="images/person1.jpg" class="person-img">
+                <p class="story">
+                    “I lost my wallet in the market and thought it was gone forever.
+                    Someone posted it here and contacted me within a day.”
+                </p>
+                <h4 class="person-name">Sipun</h4>
+                <span class="person-role">Software Engineer</span>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="testimonial-card active">
+                <img src="images/person2.jpg" class="person-img">
+                <p class="story">
+                    “My laptop bag was missing from college. Thanks to this platform,
+                    a student who found it reached out and returned everything safely.”
+                </p>
+                <h4 class="person-name">ritik</h4>
+                <span class="person-role">University Student</span>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="testimonial-card">
+                <img src="images/person3.jpg" class="person-img">
+                <p class="story">
+                    “I found someone's ID card and posted it here. Within hours
+                    the owner contacted me and we arranged a quick return.”
+                </p>
+                <h4 class="person-name">Omm</h4>
+                <span class="person-role">Business Owner</span>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="testimonial-card">
+                <img src="images/person4.jpg" class="person-img">
+                <p class="story">
+                    “This website helped me recover my lost phone during a festival.
+                    The finder contacted me through the secure messaging system.”
+                </p>
+                <h4 class="person-name">Anurag</h4>
+                <span class="person-role">Graphic Designer</span>
+            </div>
+
         </div>
+
+        <button class="arrow right" onclick="nextSlide()">❯</button>
+
     </div>
+
 </section>
 
 

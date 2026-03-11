@@ -145,3 +145,57 @@ h2 {
     .tab-btn { padding: 12px 15px; font-size: 0.85rem; }
     .header { padding: 15px 5%; }
 }
+
+.message-actions{
+
+margin-top:10px;
+
+display:flex;
+
+gap:10px;
+
+}
+
+.details-btn{
+
+background:#2563eb;
+
+color:white;
+
+border:none;
+
+padding:6px 12px;
+
+border-radius:6px;
+
+cursor:pointer;
+
+}
+
+.details-btn:hover{
+
+background:#1d4ed8;
+
+}
+
+.delete-btn{
+
+background:#ef4444;
+
+color:white;
+
+border:none;
+
+padding:6px 12px;
+
+border-radius:6px;
+
+cursor:pointer;
+
+}
+
+.delete-btn:hover{
+
+background:#dc2626;
+
+}

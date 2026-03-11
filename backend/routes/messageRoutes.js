@@ -8,4 +8,7 @@ router.post("/send", auth, messageController.sendMessage);
 // Get my messages
 router.get("/my-messages", auth, messageController.getMyMessages);
 
+// DELETE message
+router.delete("/:id", auth, messageController.deleteMessage);
+
 module.exports = router;

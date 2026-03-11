@@ -65,7 +65,11 @@ function renderItems(filter){
 
         const div = document.createElement("div");
         div.classList.add("item-card");
-        div.id = item._id;
+div.id = item._id;
+
+div.addEventListener("click", () => {
+    window.location.href = `item-details.html?id=${item._id}`;
+});
 
         div.innerHTML = `
             <div class="item-info">
